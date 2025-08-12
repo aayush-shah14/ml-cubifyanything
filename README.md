@@ -10,6 +10,8 @@ This repository includes the implementation of Cubify Transformer for CareMate f
 
 Justin Lazarow, David Griffiths, Gefen Kohavi, Francisco Crespo, Afshin Dehghan
 
+![Teaser](teaser.jpg?raw=true "Teaser")
+
 ## Usage
 
 - Download the cutr_rgb.pth model into the root directory
