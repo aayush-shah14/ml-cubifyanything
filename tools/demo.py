@@ -258,7 +258,7 @@ def load_data_and_execute_model(model, dataset, augmentor, preprocessor, score_t
         packaged = augmentor.package(sample)
         packaged = move_input_to_current_device(packaged, device)
         packaged = preprocessor.preprocess([packaged])
-
+        # import pdb; pdb.set_trace()
         with torch.no_grad():
             pred_instances = model(packaged)[0]
 
@@ -298,6 +298,9 @@ if __name__ == "__main__":
     
     if dataset_path == "stream":
         dataset = CaptureDataset()
+    elif os.path.isdir(dataset_path):
+        from customize_dataset import CustomizeVideoDataset
+        dataset = CustomizeVideoDataset(data_path=dataset_path)
     else:
         dataset_files = []
 
@@ -362,4 +365,4 @@ if __name__ == "__main__":
     if args.device is not None:
         model = model.to(args.device)
 
-    load_data_and_execute_model(model, dataset, augmentor, preprocessor, score_thresh=args.score_thresh, viz_on_gt_points=args.viz_on_gt_points)
+    load_data_and_execute_model(model, dataset, augmentor, preprocessor, score_thresh=float(args.score_thresh), viz_on_gt_points=args.viz_on_gt_points)
