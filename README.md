@@ -1,6 +1,6 @@
 # Cubify Anything
 
-This repository includes the implementation of Cubify Transformer for CareMate for detecting 3D objects in an indoor scene environment and labeling via clip.
+This repository includes the implementation of Cubify Transformer for detecting 3D objects in an indoor scene environment and labeling via clip.
 
 ## Paper
 
